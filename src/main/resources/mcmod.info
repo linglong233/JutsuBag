@@ -1,0 +1,16 @@
+[
+{
+  "modid": "jutsubag",
+  "name": "JutsuBag",
+  "description": "火影忍术背包MOD",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "https://jq.qq.com/?_wv=1027&k=5aOTei5",
+  "updateUrl": "https://jq.qq.com/?_wv=1027&k=5aOTei5",
+  "authorList": ["玲珑"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
