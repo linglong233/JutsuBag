@@ -22,7 +22,7 @@ public class GuiBagLoader implements IGuiHandler
         switch (ID)
         {
         case GUI_DEMO:
-            return new ContainerDemo(player);
+            return new ContainerJutsuBag(player);
         default:
             return null;
         }
@@ -34,7 +34,7 @@ public class GuiBagLoader implements IGuiHandler
         switch (ID)
         {
         case GUI_DEMO:
-            return new GuiContainerDemo(new ContainerDemo(player));
+            return new GuiContainerJutsuBag(new ContainerJutsuBag(player));
         default:
             return null;
         }

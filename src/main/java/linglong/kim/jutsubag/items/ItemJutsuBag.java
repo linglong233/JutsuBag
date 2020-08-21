@@ -31,7 +31,7 @@ public class ItemJutsuBag extends Item {
 	}
 
 	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
-		ExtendedPlayer.getBag().saveInventoryToNBT();
+
 	}
 
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
@@ -43,8 +43,6 @@ public class ItemJutsuBag extends Item {
 		if (!worldIn.isRemote) {
 			int id = GuiBagLoader.GUI_DEMO;
 		    epm = (EntityPlayerMP) playerIn;
-//			epm.playerNetServerHandler.sendPacket(new S2DPacketOpenWindow(epm.currentWindowId, 0, ExtendedPlayer.getBag().getInventoryName(), ExtendedPlayer.getBag().getSizeInventory(), ExtendedPlayer.getBag().hasCustomInventoryName()));
-//			playerIn.displayGUIChest(ExtendedPlayer.getBag());
 			playerIn.openGui(JutsuBag.instance, id, worldIn, playerIn.serverPosX , playerIn.serverPosY, playerIn.serverPosZ);
 		}
 		return itemStackIn;

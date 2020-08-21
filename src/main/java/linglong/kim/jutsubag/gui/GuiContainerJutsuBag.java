@@ -14,16 +14,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
-public class GuiContainerDemo extends GuiContainer
+public class GuiContainerJutsuBag extends GuiContainer
 {
     private static final String TEXTURE_PATH = "textures/gui/container/generic_54.png";
     private static final ResourceLocation TEXTURE = new ResourceLocation(TEXTURE_PATH);
     private int inventoryRows;
-    public GuiContainerDemo(ContainerDemo inventorySlotsIn)
+    public GuiContainerJutsuBag(ContainerJutsuBag inventorySlotsIn)
     {
         super(inventorySlotsIn);
         this.allowUserInput = false;
-        this.inventoryRows = ExtendedPlayer.getBag().getSizeInventory() / 9;
+        this.inventoryRows = 6;
     }
 
     @Override

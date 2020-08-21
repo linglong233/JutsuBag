@@ -14,22 +14,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.play.server.S2DPacketOpenWindow;
 
-public class ContainerDemo extends Container {
+public class ContainerJutsuBag extends Container {
 	private IInventory lowerChestInventory;
 	private int numRows;
 	
-	public ContainerDemo(EntityPlayer player) {
+	public ContainerJutsuBag(EntityPlayer player) {
 		this.lowerChestInventory = player.inventory;
-		this.numRows = ExtendedPlayer.getBag().getSizeInventory() / 9;
-		ItemJutsuBag.epm.playerNetServerHandler.sendPacket(new S2DPacketOpenWindow(ItemJutsuBag.epm.currentWindowId, 0, ExtendedPlayer.getBag().getInventoryName(), ExtendedPlayer.getBag().getSizeInventory(), ExtendedPlayer.getBag().hasCustomInventoryName()));
-
+		ExtendedPlayer props = ExtendedPlayer.get(player);
+		this.numRows = props.getBag().getSizeInventory() / 9;
+//		ItemJutsuBag.epm.playerNetServerHandler.sendPacket(new S2DPacketOpenWindow(ItemJutsuBag.epm.currentWindowId, 0, props.getBag().getInventoryName(), props.getBag().getSizeInventory(), props.getBag().hasCustomInventoryName()));
 		
 		int i = (this.numRows - 4) * 18;
 		int j;
 		int k;
 		for (j = 0; j < this.numRows; ++j) {
 			for (k = 0; k < 9; ++k) {
-				this.addSlotToContainer(new Slot(ExtendedPlayer.getBag(), k + j * 9, 8 + k * 18, 18 + j * 18){
+				this.addSlotToContainer(new Slot(props.getBag(), k + j * 9, 8 + k * 18, 18 + j * 18){
 		            @Override
 		            public boolean isItemValid(ItemStack stack)
 		            {
@@ -38,7 +38,6 @@ public class ContainerDemo extends Container {
 		        });
 			}
 		}
-
 		for (j = 0; j < 3; ++j) {
 			for (k = 0; k < 9; ++k) {
 				this.addSlotToContainer(new Slot(player.inventory, k + j * 9 + 9, 8 + k * 18, 103 + j * 18 + i));
@@ -48,8 +47,15 @@ public class ContainerDemo extends Container {
 		for (j = 0; j < 9; ++j) {
 			this.addSlotToContainer(new Slot(player.inventory, j, 8 + j * 18, 161 + i));
 		}
+		for(int a = 1;a < 55;a++) {
+			if(props.getBag().getStackInSlot(a) != null) {
+			this.putStackInSlot(a, props.getBag().getStackInSlot(a));
+			Slot slot = (Slot) inventorySlots.get(a);
+			ItemStack newStack = slot.getStack();
+			}
+		}
 	}
-
+	
 	public boolean canInteractWith(EntityPlayer p_75145_1_) {
 		return this.lowerChestInventory.isUseableByPlayer(p_75145_1_);
 	}

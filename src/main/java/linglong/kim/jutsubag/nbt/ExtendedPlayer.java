@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class ExtendedPlayer implements IExtendedEntityProperties {
-	public static Bag bag = new Bag();
+	public Bag bag = new Bag();
 
 	public ExtendedPlayer(EntityPlayer player) {
 
@@ -40,7 +40,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 
 	}
 
-	public static Bag getBag() {
+	public Bag getBag() {
 		return bag;
 	}
 }
