@@ -23,14 +23,14 @@ public class ContainerJutsuBag extends Container {
 	public ContainerJutsuBag(EntityPlayer player) {
 		this.lowerChestInventory = player.inventory;
 		ExtendedPlayer props = ExtendedPlayer.get(player);
-		this.numRows = props.getBag().getSizeInventory() / 15;
+		this.numRows = props.getBag().getSizeInventory() / 9;
 
 		int i = (this.numRows - 4) * 18;
 		int j;
 		int k;
 		for (j = 0; j < this.numRows; ++j) {
-			for (k = 0; k < 15; ++k) {
-				this.addSlotToContainer(new Slot(props.getBag(), k + j * 9, (8 + k * 18) - (3 * 18 + 8), (18 + j * 18)) {
+			for (k = 0; k < 9; ++k) {
+				this.addSlotToContainer(new Slot(props.getBag(), k + j * 9, (8 + k * 18), (18 + j * 18) - 50) {
 					@Override
 					public boolean isItemValid(ItemStack stack) {
 						return stack != null && stack.getItem() instanceof JutsuItem && super.isItemValid(stack);
@@ -40,12 +40,12 @@ public class ContainerJutsuBag extends Container {
 		}
 		for (j = 0; j < 3; ++j) {
 			for (k = 0; k < 9; ++k) {
-				this.addSlotToContainer(new Slot(player.inventory, k + j * 9 + 9, 8 + k * 18, (103 + j * 18 + i)));
+				this.addSlotToContainer(new Slot(player.inventory, k + j * 9 + 9, 8 + k * 18, (103 + j * 18 + i) - 50));
 			}
 		}
         for (int a = 0; a < 9; ++a)
         {
-            this.addSlotToContainer(new Slot(player.inventory, a, 8 + a * 18, 150));
+            this.addSlotToContainer(new Slot(player.inventory, a, 8 + a * 18, 151));
         }
 	}
 

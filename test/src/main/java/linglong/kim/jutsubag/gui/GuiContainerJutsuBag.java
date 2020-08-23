@@ -22,7 +22,7 @@ public class GuiContainerJutsuBag extends GuiContainer
     public GuiContainerJutsuBag(ContainerJutsuBag inventorySlotsIn)
     {
         super(inventorySlotsIn);
-        this.inventoryRows = 4;
+        this.inventoryRows = 6;
     }
 
     @Override
@@ -32,8 +32,8 @@ public class GuiContainerJutsuBag extends GuiContainer
         this.mc.getTextureManager().bindTexture(TEXTURE);
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.inventoryRows * 18 + 17);
-        this.drawTexturedModalRect(k, (l + this.inventoryRows * 18 + 17), 0, 126, this.xSize, 96);
+        this.drawTexturedModalRect(k, l - 50, 0, 0, this.xSize, this.inventoryRows * 18 + 17);
+        this.drawTexturedModalRect(k, (l + this.inventoryRows * 18 + 17) - 50, 0, 126, this.xSize, 96);
     }
 
     @Override

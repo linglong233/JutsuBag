@@ -18,7 +18,7 @@ import net.minecraft.nbt.NBTTagList;
 public class Bag implements IInventory {
     private ItemStack[] inventoryContents;
 	public Bag() {
-        this.inventoryContents = new ItemStack[60];
+        this.inventoryContents = new ItemStack[54];
 	}
 
 	public void loadInventoryFromNBT(NBTTagList p_70486_1_) {
@@ -60,7 +60,7 @@ public class Bag implements IInventory {
 
 	@Override
 	public int getSizeInventory() {
-		return 60;
+		return 54;
 	}
 
 	@Override
