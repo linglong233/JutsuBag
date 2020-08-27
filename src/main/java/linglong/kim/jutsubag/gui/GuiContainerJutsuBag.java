@@ -22,8 +22,9 @@ public class GuiContainerJutsuBag extends GuiContainer
     public GuiContainerJutsuBag(ContainerJutsuBag inventorySlotsIn)
     {
         super(inventorySlotsIn);
-        this.allowUserInput = false;
         this.inventoryRows = 6;
+        this.ySize = 250;
+        this.xSize = 195;
     }
 
     @Override
@@ -34,13 +35,13 @@ public class GuiContainerJutsuBag extends GuiContainer
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.inventoryRows * 18 + 17);
-        this.drawTexturedModalRect(k, l + this.inventoryRows * 18 + 17, 0, 126, this.xSize, 96);
+        this.drawTexturedModalRect(k, (l + this.inventoryRows * 18 + 17), 0, 126, this.xSize, 96);
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
         String title = I18n.format("container.bag");
-        this.fontRendererObj.drawString(title, (this.xSize - this.fontRendererObj.getStringWidth(title)) / 2, 6, 0x404040);
+        this.fontRendererObj.drawString(title, (this.xSize - this.fontRendererObj.getStringWidth(title) - 20) / 2, 5, 0x404040);
     }
 }

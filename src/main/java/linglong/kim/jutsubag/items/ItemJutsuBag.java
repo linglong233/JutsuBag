@@ -21,7 +21,6 @@ import net.minecraft.world.World;
 import net.minecraft.item.Item;
 
 public class ItemJutsuBag extends Item {
-	public static EntityPlayerMP epm;
 
 	public ItemJutsuBag() {
 		this.maxStackSize = 1;
@@ -42,7 +41,6 @@ public class ItemJutsuBag extends Item {
 	public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn) {
 		if (!worldIn.isRemote) {
 			int id = GuiBagLoader.GUI_DEMO;
-		    epm = (EntityPlayerMP) playerIn;
 			playerIn.openGui(JutsuBag.instance, id, worldIn, playerIn.serverPosX , playerIn.serverPosY, playerIn.serverPosZ);
 		}
 		return itemStackIn;
